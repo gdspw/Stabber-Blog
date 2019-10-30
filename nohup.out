@@ -1,0 +1,21 @@
+Configuration file: /myblog/Stabber-Blog/_config.yml
+            Source: .
+       Destination: ./_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+[33m   GitHub Metadata: No GitHub API authentication could be found. Some fields may be missing or have incorrect data.[0m
+                    done in 1.389 seconds.
+ Auto-regeneration: enabled for '.'
+Configuration file: /myblog/Stabber-Blog/_config.yml
+jekyll 3.0.1 | Error:  Address already in use - bind(2) for 127.0.0.1:4000
+Configuration file: /myblog/Stabber-Blog/_config.yml
+            Source: .
+       Destination: ./_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+[33m   GitHub Metadata: No GitHub API authentication could be found. Some fields may be missing or have incorrect data.[0m
+                    done in 1.638 seconds.
+ Auto-regeneration: enabled for '.'
+Configuration file: /myblog/Stabber-Blog/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
