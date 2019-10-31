@@ -15,10 +15,9 @@ description: 本站是stabber的技术分享博客。内容涵盖生活故事、
 keywords: stabber,gdspw,Spring,Spring Boot,Spring Cloud,MongoDB,Jvm,Docker,生活故事,架构,大数据,一线,FastDFS,开发者,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,IT技术博客,Java,Python,
 encoding: "utf-8"
 favicon: favicon.png 
-
 repository: gdspw/gdspw.github.io
 github_url: https://github.com/gdspw
-url: http://gpblog.cn
+site_url: http://gpblog.cn
 #enforce_ssl: gpblog.cn
 
 ## Gem
