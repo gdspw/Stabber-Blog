@@ -13,6 +13,7 @@ no-post-nav: true
 
 ### 1. 先看下样例
 数据库如下表：
+
 ```
 CREATE TABLE `country` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -21,6 +22,7 @@ CREATE TABLE `country` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10011 DEFAULT CHARSET=utf8 COMMENT='国家信息';
 ```
+
 对应的Java实体类型如下：
 ```
 public class Country {
@@ -37,7 +39,7 @@ public class Country {
 ```
 where id = ? and countryname = ? and countrycode = ? 的情况
 ```
->通用Mapper提供了大量的通用接口，这里以最常用的Mapper接口为例
+通用Mapper提供了大量的通用接口，这里以最常用的Mapper接口为例
 该实体类对应的dao层接口如下：
 ```
 import tk.mybatis.mapper.common.Mapper;
@@ -75,10 +77,10 @@ public interface CountryMapper extends Mapper<Country> {
     Country selectByCountryName(String countryname);
 }
 ```
->复杂的sql也是可以的，这里只是一个简单的举例
+复杂的sql也是可以的，这里只是一个简单的举例
 
 #### 1.2 如果使用XML方式，需要提供接口对应的XML文件
->对，你没有看错，Mapper可以跟xml文件共存，看到这里是不是觉得很意外，哈哈哈！
+对，你没有看错，Mapper可以跟xml文件共存，看到这里是不是觉得很意外，哈哈哈！
 
 例如提供了 CountryMapper.xml 文件，内容如下：
 ```
@@ -99,19 +101,19 @@ public interface CountryMapper extends Mapper<Country> {
     Country selectByCountryName(String countryname);
 }
 ```
->*在接口中添加其他方法的时候和只用 MyBatis 是完全一样的，但是需要注意，在对应的 XML 中，不能出现和继承接口中同名的方法！*
->多态！
+*在接口中添加其他方法的时候和只用 MyBatis 是完全一样的，但是需要注意，在对应的 XML 中，不能出现和继承接口中同名的方法！*
+多态！
 
->在接口中，只要不是通过注解来实现接口方法，接口是允许重名的，真正调用会使用通用 Mapper 提供的方法。
+在接口中，只要不是通过注解来实现接口方法，接口是允许重名的，真正调用会使用通用 Mapper 提供的方法。
 
->例如在上面 CountryMapper 中提供一个带分页的 selectAll 方法：
+例如在上面 CountryMapper 中提供一个带分页的 selectAll 方法：
 
 ```
   public interface CountryMapper extends Mapper<Country> {
     List<Country> selectAll(RowBounds rowBounds);
 }
 ```
->在 Java 8 的接口中通过默认方法还能增加一些简单的间接调用方>法，例如：
+在 Java 8 的接口中通过默认方法还能增加一些简单的间接调用方>法，例如：
 ```
 public interface CountryMapper extends Mapper<Country> {
     //这个示例适合参考实现对乐观锁方法封装
@@ -125,7 +127,7 @@ public interface CountryMapper extends Mapper<Country> {
 #### 2.1 Spring集成
 ---
 ##### 2.1.1 添加依赖
->通用Mapper支持Mybatis 3.2.4+，使用该通用Mapper的同学注意当前项目的Mybatis版本号
+通用Mapper支持Mybatis 3.2.4+，使用该通用Mapper的同学注意当前项目的Mybatis版本号
 ```
 <dependency>
     <groupId>tk.mybatis</groupId>
@@ -155,7 +157,7 @@ public interface CountryMapper extends Mapper<Country> {
 </bean>
 ```
 
->Spring引入更多的配置相关可以移步官方介绍：https://gitee.com/free/Mapper/wikis/1.2-spring?sort_id=208197
+Spring引入更多的配置相关可以移步官方介绍：https://gitee.com/free/Mapper/wikis/1.2-spring?sort_id=208197
 
 #### 2.1 Spring Boot 集成
 Spring Boot 在微服务领域中已经成为主流。
@@ -168,11 +170,11 @@ Spring Boot 在微服务领域中已经成为主流。
 - 基于 @MapperScan 注解的手工配置
 
 ##### 2.1.1 mapper-spring-boot-starter
->在 starter 的逻辑中，如果你没有使用 @MapperScan 注解，你就需要在你的接口上增加 @Mapper 注解，否则 MyBatis 无法判断扫描哪些接口。
+在 starter 的逻辑中，如果你没有使用 @MapperScan 注解，你就需要在你的接口上增加 @Mapper 注解，否则 MyBatis 无法判断扫描哪些接口。
 
->这里的第一种用法没有用 @MapperScan 注解，所以你需要在所有接口上增加 @Mapper 注解。
+这里的第一种用法没有用 @MapperScan 注解，所以你需要在所有接口上增加 @Mapper 注解。
 
->以后会考虑增加其他方式。
+以后会考虑增加其他方式。
 
 你只需要添加通用 Mapper 提供的 starter 就完成了最基本的集成，依赖如下：
 ```
@@ -207,4 +209,4 @@ public class SampleMapperApplication implements CommandLineRunner {
 **注意：这里使用的 tk.mybatis.spring.annotation.MapperScan !**
 
 
->以上就是对于Mapper4的简要介绍，更多功能可参考官网：https://gitee.com/free/Mapper ,希望能够帮助到大家，减轻繁琐的重复的工作，提高coding效率，感谢阅读本文！
+以上就是对于Mapper4的简要介绍，更多功能可参考官网：https://gitee.com/free/Mapper ,希望能够帮助到大家，减轻繁琐的重复的工作，提高coding效率，感谢阅读本文！

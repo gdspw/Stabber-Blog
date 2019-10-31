@@ -1,0 +1,107 @@
+I"�<div class="row">
+
+    <div class="col-md-8">
+
+        <!-- Blog list -->
+        <ul id="posts-list">
+            
+            <li class="posts-list-item" data-title="Mybatis与Mapper4结合，提高开发效率!">
+                <div class="posts-content">
+                    <span class="posts-list-meta">2019-10-30</span>
+                    <a class="posts-list-name bubble-float-left" href="http://localhost:4000/it/2019/10/30/mybits-mapper.html">Mybatis与Mapper4结合，提高开发效率!</a>
+                    <span class="circle"></span>
+                </div>
+            </li>
+            
+            <li class="posts-list-item" data-title="VMware Fusion 11序列号亲测可用">
+                <div class="posts-content">
+                    <span class="posts-list-meta">2019-10-30</span>
+                    <a class="posts-list-name bubble-float-left" href="http://localhost:4000/it/2019/10/30/VMware-Fusion-11.html">VMware Fusion 11序列号亲测可用</a>
+                    <span class="circle"></span>
+                </div>
+            </li>
+            
+        </ul>
+
+        <!-- Pagination -->
+        
+
+
+        <!-- Comments -->
+        
+
+
+    </div>
+
+    <div class="col-md-4">
+        <h3 class="sidebar-title">Blog Categories</h3>
+<div id="blog-categories">
+    <div class="list-group">
+        <a href="javascript:" class="list-group-item" data-category="" data-posts="">
+            All
+            <span class="badge">2</span>
+        </a>
+        
+        <a href="javascript:" class="list-group-item" data-category="it" data-posts="Mybatis与Mapper4结合，提高开发效率!||VMware Fusion 11序列号亲测可用||">
+            it
+            <span class="badge">2</span>
+        </a>
+        
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        filterPosts();
+
+        $("#blog-categories li").css('text-transform', 'capitalize');
+
+        $(".list-group-item").click(function () {
+            window.location.hash = $(this).attr('data-category') ? $(this).attr('data-category') : "";
+        });
+
+        window.addEventListener('hashchange', function () {
+            filterPosts();
+        });
+    });
+
+    function filterPosts() {
+        if (location.hash) {
+            var hash = decodeURIComponent(location.hash.slice(1));
+
+            $("#blog-categories .list-group-item").each(function (i, item) {
+                if ($(item).attr("data-category") == hash) {
+                    $(item).addClass("active");
+                    var posts = $(item).attr("data-posts").split("||");
+                    $("#posts-list .posts-list-item").each(function (i, item) {
+                        $.inArray($(item).attr("data-title"), posts) != -1 ? $(item).show() : $(item).hide();
+                    });
+                } else {
+                    $(item).removeClass("active");
+                }
+            });
+        } else {
+            $("#posts-list .posts-list-item").each(function (i, item) {
+                $(item).show();
+            });
+            $("#blog-categories .list-group-item").each(function (i, item) {
+                $(item).attr("data-category") == "" ? $(item).addClass("active") : $(item).removeClass("active");
+            });
+        }
+    }
+
+</script>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function(){
+
+        // Enable bootstrap tooltip
+        $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+    });
+</script>
+
+:ET

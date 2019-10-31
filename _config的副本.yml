@@ -6,23 +6,25 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title:  Stabber
-subtitle: 分享技术，品味人生
-location: 上海，中国
+title: 技术小白成长之路
 name: Stabber 
 email: Stabber305@gmial.com
-description: 本站是stabber的技术分享博客。内容涵盖生活故事、Java后端技术、Spring Boot、Spring Cloud、微服务架构、大数据演进、高可用架构、中间件使用、系统监控等相关的研究与知识分享。
-keywords: stabber,gdspw,Spring,Spring Boot,Spring Cloud,MongoDB,Jvm,Docker,生活故事,架构,大数据,一线,FastDFS,开发者,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,IT技术博客,Java,Python,
-encoding: "utf-8"
-favicon: favicon.png 
-
-repository: gdspw/gdspw.github.io
+location: 上海，中国
+#company: MyCompany
+#company_url: my_company_website
 github_url: https://github.com/gdspw
+github_username: gdspw
+description: 分享技术，品味人生
+favicon: favicon.png 
+repository: gdspw/gdspw.github.io 
+
+# The base hostname & protocol for your site
+# For local test, please use http://localhost:4000
+# For production, use your github page url. ex. http://dongchuan.github.io
 url: http://www.gpblog.cn
-enforce_ssl: gpblog.com
 
 ## Gem
-plugins:
+gems:
   - jekyll-paginate
   - jekyll-geo-pattern
   - rouge
@@ -45,12 +47,14 @@ kramdown:
   input: GFM
   enable_coderay: true
   syntax_highlighter: rouge
-
+  
 syntax_highlighter_opts:
    coderay_line_numbers:  nil
+# Disque
+disque: my_disque_settings # ex. httpdongchuangithubio.disqus.com
 
 # Pagination
-paginate: 12
+paginate: 10
 paginate_path: 'page:num'
 
 # Navigation. If you do not like these modules, just remove them :D
