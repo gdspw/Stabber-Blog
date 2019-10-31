@@ -9,14 +9,15 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        console.info("test")
         $( "article h2" ).each(function( index ) {
             $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
                     $(this).attr("id")
                     + ">"
                     + $(this).text()
                     + "</a></dt>");
+
             var children = $(this).nextUntil("h2", "h3")
+
             children.each(function( index ) {
                 $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
                         $(this).attr("id")
@@ -25,9 +26,13 @@
                         + "</a></dd>");
             });
         });
+
         var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
         $(window).scroll(function() {                  // assign scroll event listener
+
             var currentScroll = $(window).scrollTop(); // get current position
+
             if (currentScroll >= fixmeTop) {           // apply position: fixed if you
                 $('#post-directory-module').css({      // scroll to that element or below it
                     top: '100px',
@@ -40,12 +45,18 @@
                     width: 'inherit'
                 });
             }
+
         });
-        $("a.jumper").on("click", function( e ) {
+
+        $("a.jumper").on("click", function( e ) {
+
             e.preventDefault();
+
             $("body, html").animate({
                 scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
             }, 600);
+
         });
     });
+
 </script>

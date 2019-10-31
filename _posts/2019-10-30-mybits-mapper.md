@@ -3,7 +3,6 @@ layout: post
 title:  "Mybatis与Mapper4结合，提高开发效率!"
 categories: it
 tags: [mybatis,mysql,java]
-no-post-nav: true
 ---
 >**背景**：项目的日常迭代，总会涉及到对于已有表的结构调整，每次表结构的变更都会涉及到model对应xml的变更，每次的变更都是小心翼翼，以求不影响已有的功能，着实令人头疼；直到遇见Mapper4，才解决之一难题。
 
@@ -11,7 +10,7 @@ no-post-nav: true
 通用Mapper4是一个可以实现任意MyBatis通用方法的框架，项目提供了常规的增删盖茶操作以及Example相关的单表操作，是为了解决Mybati使用的90%的基本操作，使用它可以很方便的进行开发，可以节省开发人员大量的时间。
 本文主要是对通用Mapper做下样例的介绍及依赖引入、配置等，希望能够对于各位阅读的同学有些许帮助。
 
-### 1. 先看下样例
+## 1. 先看下样例
 数据库如下表：
 
 ```
@@ -67,7 +66,7 @@ country = countryMapper.selectByPrimaryKey(query);
 ```
 
 如果想要增加自己写的方法，可以直接在ContryMapper中增加。
-#### 1.1 使用纯接口注解方式
+### 1.1 使用纯接口注解方式
 ```
 import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;
@@ -79,7 +78,7 @@ public interface CountryMapper extends Mapper<Country> {
 ```
 复杂的sql也是可以的，这里只是一个简单的举例
 
-#### 1.2 如果使用XML方式，需要提供接口对应的XML文件
+### 1.2 如果使用XML方式，需要提供接口对应的XML文件
 对，你没有看错，Mapper可以跟xml文件共存，看到这里是不是觉得很意外，哈哈哈！
 
 例如提供了 CountryMapper.xml 文件，内容如下：
@@ -123,10 +122,10 @@ public interface CountryMapper extends Mapper<Country> {
 }
 ```
 
-### 2. 集成方式
-#### 2.1 Spring集成
+## 2. 集成方式
+### 2.1 Spring集成
 ---
-##### 2.1.1 添加依赖
+#### 2.1.1 添加依赖
 通用Mapper支持Mybatis 3.2.4+，使用该通用Mapper的同学注意当前项目的Mybatis版本号
 ```
 <dependency>
@@ -135,7 +134,7 @@ public interface CountryMapper extends Mapper<Country> {
     <version>最新版本</version>
 </dependency>
 ```
-##### 2.1.2 XML配置-MapperScannerConfigurer
+#### 2.1.2 XML配置-MapperScannerConfigurer
 引入通用Mapper4依赖后，只需要替换XML原有的*org.mybatis.spring.mapper.MapperScannerConfigurer* 为*tk.mybatis.spring.mapper.MapperScannerConfigurer*，两者的唯一区别一个是 **tk** 一个是 **org**。
 ```
 <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -159,7 +158,7 @@ public interface CountryMapper extends Mapper<Country> {
 
 Spring引入更多的配置相关可以移步官方介绍：https://gitee.com/free/Mapper/wikis/1.2-spring?sort_id=208197
 
-#### 2.1 Spring Boot 集成
+### 2.2 Spring Boot 集成
 Spring Boot 在微服务领域中已经成为主流。
 
 这里介绍通用 Mapper 如何同 Spring Boot 进行集成。
@@ -169,7 +168,7 @@ Spring Boot 在微服务领域中已经成为主流。
 - 基于 starter 的自动配置
 - 基于 @MapperScan 注解的手工配置
 
-##### 2.1.1 mapper-spring-boot-starter
+#### 2.2.1 mapper-spring-boot-starter
 在 starter 的逻辑中，如果你没有使用 @MapperScan 注解，你就需要在你的接口上增加 @Mapper 注解，否则 MyBatis 无法判断扫描哪些接口。
 
 这里的第一种用法没有用 @MapperScan 注解，所以你需要在所有接口上增加 @Mapper 注解。
@@ -199,7 +198,7 @@ mapper:
 mapper.mappers=tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.Mapper2
 mapper.notEmpty=true
 ```
-##### 2.2.2 @MapperScan 注解配置
+#### 2.2.2 @MapperScan 注解配置
 你可以给带有 @Configuration 的类配置该注解，或者直接配置到 Spring Boot 的启动类上，如下：
 ```
 @tk.mybatis.spring.annotation.MapperScan(basePackages = "扫描包")
