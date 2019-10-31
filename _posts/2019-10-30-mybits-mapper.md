@@ -42,8 +42,8 @@ where id = ? and countryname = ? and countrycode = ? 的情况
 ```
 import tk.mybatis.mapper.common.Mapper;
 
-public interface CountryMapper extends Mapper<Country> {
-}
+public interface CountryMapper extends Mapper<Country> {}
+
 ```
 该接口默认集成的方法如下：
 - selectOne
@@ -106,17 +106,20 @@ public interface CountryMapper extends Mapper<Country> {
 
 >例如在上面 CountryMapper 中提供一个带分页的 selectAll 方法：
 
->```public interface CountryMapper extends Mapper<Country> {
+```
+  public interface CountryMapper extends Mapper<Country> {
     List<Country> selectAll(RowBounds rowBounds);
->}```
+}
+```
 >在 Java 8 的接口中通过默认方法还能增加一些简单的间接调用方>法，例如：
-
->```public interface CountryMapper extends Mapper<Country> {
+```
+public interface CountryMapper extends Mapper<Country> {
     //这个示例适合参考实现对乐观锁方法封装
     default void updateSuccess(Country country){
         Assert.assertEquals(1, updateByPrimaryKey(country));
     }
->}```
+}
+```
 
 **好了，样例也看了，接下来就是如何引入依赖和相关配置了。**
 ### 2. 集成方式
