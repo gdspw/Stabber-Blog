@@ -18,6 +18,7 @@ favicon: favicon.png
 repository: gdspw/gdspw.github.io
 github_url: https://github.com/gdspw
 site_url: http://www.itstabber.com
+baseurl: http://www.itstabber.com
 #enforce_ssl: gpblog.cn
 
 ## Gem
