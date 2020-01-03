@@ -4,3 +4,4 @@ _site
 .idea
 nohup.out
 .jekyll-cache
+*.iml
