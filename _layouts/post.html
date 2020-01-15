@@ -14,6 +14,8 @@ css: ['sidebar-post-nav.css']
 
             <!-- Comments -->
             {% include disqus-comments.html %}
+            <!-- Comments -->
+
         </div>
         {% else %}
         <div class="col-md-8 markdown-body">
@@ -22,7 +24,9 @@ css: ['sidebar-post-nav.css']
 
             <!-- Comments -->
             {% include disqus-comments.html %}
+
         </div>
+
 
         <div class="col-md-4">
             {% include sidebar-post-nav.html %}
@@ -30,5 +34,7 @@ css: ['sidebar-post-nav.css']
         {% endif %}
 
     </div>
-
+    <div class="comment">
+        {% include comments.html %}
+    </div>
 </article>
