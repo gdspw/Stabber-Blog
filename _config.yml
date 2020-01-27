@@ -10,15 +10,15 @@ title:  Stabber
 subtitle: 分享技术，品味人生
 location: 上海，中国
 name: Stabber 
-email: Stabber305@gmial.com
+email: stabber305@gmail.com
 description: 本站是stabber的技术分享博客。内容涵盖生活故事、Java后端技术、Spring Boot、Spring Cloud、微服务架构、大数据演进、高可用架构、中间件使用、系统监控等相关的研究与知识分享。
 keywords: stabber,gdspw,Spring,Spring Boot,Spring Cloud,MongoDB,Jvm,Docker,生活故事,架构,大数据,一线,FastDFS,开发者,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,IT技术博客,Java,Python,
 encoding: "utf-8"
 favicon: favicon.png 
 repository: gdspw/gdspw.github.io
 github_url: https://github.com/gdspw
-url: http://www.itstabber.com
-enforce_ssl: itstabber.com
+url: https://www.itstabber.com
+enforce_ssl: www.itstabber.com
 
 ## Gem
 plugins:
@@ -110,7 +110,7 @@ comments_provider: gitalk
 gitalk:
     owner: gdspw
     repo: stabber-blog-talk
-    clientID: 0bd41c1295e512bfd97a
-    clientSecret: f074c13c66a123fe3dbd822ac7062562e7c8cffa
+    clientID: 57026502e92ab518928a
+    clientSecret: 52b585b5501635244acc14e7ae2fdfcdc0a731e8
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : true
