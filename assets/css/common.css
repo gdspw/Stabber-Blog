@@ -177,3 +177,29 @@
 .sidebar-title {
     text-align: center;
 }
+
+.site-footer-icons{
+    line-height: 32px;
+    text-align: center;
+}
+.site-footer-icons a{
+    display: inline-block;
+    margin: 0 2px;
+    vertical-align: middle;
+}
+
+.site-footer .scrolltop{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -16px;
+    line-height: 32px;
+}
+
+.site-footer .rss{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -16px;
+    line-height: 32px;
+}
