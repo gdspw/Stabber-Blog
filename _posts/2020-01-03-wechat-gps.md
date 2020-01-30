@@ -232,4 +232,4 @@ export default {
 }
 ```
 ## 2.页面控制台打印结果
-![image](http://image.gpblog.cn/uPic/WX20200103-133111@2x.png)
+![image](http://image.itstabber.com/uPic/WX20200103-133111@2x.png)
