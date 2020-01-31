@@ -17,8 +17,8 @@ encoding: "utf-8"
 favicon: header.jpg
 repository: gdspw/gdspw.github.io
 github_url: https://github.com/gdspw
-url: https://www.itstabber.com
-enforce_ssl: www.itstabber.com
+url: http://www.itstabber.com
+#enforce_ssl: www.itstabber.com
 
 ## Gem
 plugins:
