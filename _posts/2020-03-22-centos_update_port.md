@@ -1,8 +1,11 @@
+---
 layout: post
 title:  "更改centos系统ssh连接端口号"
 categories: it
-tags: [Centos,系统]
+tags:  [Centos,系统]
 excerpt: 一次登录个人服务器，发现“There were 113773 failed login attempts since the last successful login”，这尼玛是服务器被黑的前兆啊，赶紧改下服务器ssh连接端口压压惊...
+
+---
 
 由于本人平时爱折腾，之前趁着阿里云和腾讯云搞活动期间分别搞了台服务器，刚开始的时候，，服务器的防护措施没有做好，陆陆续续服务器被黑了好几次，最惨的一次是搭建的知识库的服务器被黑，导致所有的数据丢失，黑客在服务器留言需要0.25个比特币赎回数据，当时的内心真实哔了狗了。鉴于之前的惨痛经历，本次登录服务器突然看到“There were 113773 failed login attempts since the last successful login”的提示，内心真实咯噔了一下，以为我的重新搭建的知识库还在这台机器上，当时系统重装后忘了最关键也是最有效的措施：修改ssh连接端口号。
 
