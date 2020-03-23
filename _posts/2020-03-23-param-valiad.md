@@ -184,7 +184,9 @@ public class HelloWorld {
 
 如上可以看到，商品编号属性是OrderRequest中的productRequestList的属性，依然能够成功校验，另外，productCode和productName，传递参数的时候都是给到的空串，由于两者的使用的注解不一样，其中商品名称被拦截，商品编码规则通过，这也是针对String类型参数时，@NotBlank与@NotNull的不同之处。
 
-本文就简单的介绍在这里，有兴趣的小伙伴可以访问我的github地址，本文的源码在：https://github.com/gdspw/blog-demo ；源码的全局异常处理类还有很多其他的异常拦截处理，可供参考。
+本文就简单的介绍在这里，有兴趣的小伙伴可以访问我的github地址，[本文的源码请点击](https://github.com/gdspw/blog-demo );
+
+源码的全局异常处理类还有很多其他的异常拦截处理，可供参考。
 
 有什么问题需要问的或者可供讨论的，欢迎在文章下方评论区留言！
 
