@@ -180,7 +180,7 @@ public class HelloWorld {
 
 #### 响应结果
 
-![image-20200324014847675](/Users/gongdaoshun/Library/Application Support/typora-user-images/image-20200324014847675.png)
+![kQHHDy](http://image.itstabber.com/uPic/kQHHDy.png)
 
 如上可以看到，商品编号属性是OrderRequest中的productRequestList的属性，依然能够成功校验，另外，productCode和productName，传递参数的时候都是给到的空串，由于两者的使用的注解不一样，其中商品名称被拦截，商品编码规则通过，这也是针对String类型参数时，@NotBlank与@NotNull的不同之处。
 
