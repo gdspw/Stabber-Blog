@@ -3,7 +3,7 @@ layout: post
 title:  "新增mysql用户，并限制访问数据库"
 categories: it
 tags:  [Mysql,IT]
-excerpt: 记录如何在mysql新增用户，并设置访问的数据的权限。
+excerpt: 记录如何在mysql新增用户，并设置访问的数据的权限...
 
 ---
 
