@@ -153,13 +153,13 @@ server {
 
 ### 查看服务器监听脚本日志
 
-![image-20200325003634556](/Users/gongdaoshun/Library/Application Support/typora-user-images/image-20200325003634556.png)
+![image-20200325003634556](http://image.itstabber.com/uPic/image-20200325003634556.png)
 
 日志显示已经自动拉取刚刚提交的文章，并且重新构建完成
 
 ### 访问博客网站，进行结果验证
 
-![image-20200325005159802](/Users/gongdaoshun/Library/Application Support/typora-user-images/image-20200325005159802.png)
+![image-20200325005159802](http://image.itstabber.com/uPic/image-20200325005159802.png)
 
 截图中可以看到，文章已经发布到网站上了。
 
