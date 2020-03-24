@@ -18,6 +18,7 @@ favicon: header.jpg
 repository: gdspw/gdspw.github.io
 github_url: https://github.com/gdspw
 url: http://www.itstabber.com
+site_url: http://www.itstabber.com
 enforce_ssl: itstabber.com
 
 ## Gem
