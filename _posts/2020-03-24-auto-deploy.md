@@ -137,5 +137,30 @@ server {
 
 重启nginx是的配置生效： **./nginx -s reload**
 
-到此，当对应的代码仓库有新的push内容后，就回自动触发node启动的js脚本服务，并且通过**blog-start.sh**自动的从github拉去最新的代码并完成代码构建，此时我的博客内容就会加入最新新增的文章信息了。下面截图是我本片文章新增时的验证结果：
+## 3. 验证配置结果
 
+到此，当对应的代码仓库有新的push内容后，就回自动触发node启动的js脚本服务，并且通过**blog-start.sh**自动的从github拉去最新的代码并完成代码构建，此时我的博客内容就会加入最新新增的文章信息了。下面截图是我本片文章新增时的验证结果（截图内容都是提交后补充的）：
+
+### 提交本文章内容
+
+![DUPHLj](http://image.itstabber.com/uPic/DUPHLj.png)
+
+### 查看webhook调用结果
+
+进入github项目仓库的webhooks目录下，可以看到本次push触发了接口调用，接口返回：
+
+![GmV3AV](http://image.itstabber.com/uPic/GmV3AV.png)
+
+### 查看服务器监听脚本日志
+
+![image-20200325003634556](/Users/gongdaoshun/Library/Application Support/typora-user-images/image-20200325003634556.png)
+
+日志显示已经自动拉取刚刚提交的文章，并且重新构建完成
+
+### 访问博客网站，进行结果验证
+
+![image-20200325005159802](/Users/gongdaoshun/Library/Application Support/typora-user-images/image-20200325005159802.png)
+
+截图中可以看到，文章已经发布到网站上了。
+
+看完文章后尝试自己配置的小伙伴们，如果又遇到什么问题，可以在文章下方评论区留言交流，多谢！
