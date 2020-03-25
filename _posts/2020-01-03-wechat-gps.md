@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "java获取微信签名流程,然后js获取当前经纬度，转换成百度经纬度"
-categories: it
+categories: [wechat,js,java]
 tags: [wechat,js,java]
 ---
 >**背景**：项目需要用到就近打卡功能，当前条件在微信内，但是服务端用的是百度地图，需要用户在客户端做到钉钉附近打卡的功能，所以还要把微信的经纬度转换成百度的。

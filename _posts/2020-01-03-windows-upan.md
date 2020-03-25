@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "windows u盘权限设置，超级用法"
-categories: it
+categories: [windows]
 tags: [windows]
 ---
 >**背景**：客户公司有一个公用u盘，希望这个u盘在一个或某几个人的电脑上有所有读写权限，其他人只可读。经过网上调研，发现u盘NTFS格式的强大功能

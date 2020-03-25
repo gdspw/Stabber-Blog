@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "JAVA开发中，API接口如何优雅的进行参数校验？"
-categories: it
-tags:  [ IT,JAVA]
+categories: [it,java]
+tags:  [IT,JAVA]
 excerpt: 做过java web 应用开发的后端研发都应该做过API接口的参数校验，很多都是将校验逻辑放到展示层做拦截处理，但是涉及到参数过多的时候，就会显得Controller接口特别臃肿，本篇讲解的就是如何利用进行参数校验拦截。
 
 ---

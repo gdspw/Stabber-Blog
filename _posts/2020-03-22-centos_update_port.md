@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "更改centos系统ssh连接端口号"
-categories: it
+categories: [Centos]
 tags:  [Centos,系统]
 excerpt: 一次登录个人服务器，发现“There were 113773 failed login attempts since the last successful login”，这尼玛是服务器被黑的前兆啊，赶紧改下服务器ssh连接端口压压惊...
 

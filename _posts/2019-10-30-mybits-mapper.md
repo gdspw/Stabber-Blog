@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Mybatis与Mapper4结合，提高开发效率!"
-categories: it
+categories: [java,mybatis,mysql]
 tags: [mybatis,mysql,java]
 ---
 >**背景**：项目的日常迭代，总会涉及到对于已有表的结构调整，每次表结构的变更都会涉及到model对应xml的变更，每次的变更都是小心翼翼，以求不影响已有的功能，着实令人头疼；直到遇见Mapper4，才解决之一难题。

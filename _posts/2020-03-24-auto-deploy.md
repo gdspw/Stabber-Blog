@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "使用Github的Webhooks+Node完成网站的自动化部署"
-categories: it,github,node
+categories: [it,github,node]
 tags:  [github,node,webhooks]
 excerpt: 自打建立这个博客以来，从最开始的手动部署（纯人工），到通过服务器定时任务自动拉去最新代码部署（不及时），通过jenkins构建，到现在的通过github的webhooks自动化部署，并做此文章以记录...
 
