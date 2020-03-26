@@ -198,13 +198,10 @@ public class PageInterceptor implements Interceptor {
 这时，调用顺序就变了，Interceptor3 执行顺序如下：
 
 ```java
-如果这个插件配置的靠后，是通过 4 个参数方法进来的，我们就获取这两个对象。如果这个插件配置的靠前，已经被别的拦截器处理成 6 个参数的方法了， 那么我们直接从 args 中取出这两个参数直接使用即可。取出这两个参数就保证了当其他拦截器对这两个参数做过处理时，这两个参数在这里会继续生效。
-
-那么问题就来了，当我们的分页拦截器加载两个拦截四个参数的query方法的拦截器中间时，也就是注入顺序：
-
-Interceptor1>Interceptor2>PageInterceptor>Interceptor3
-
-这时，调用顺序就变了，Interceptor3 执行顺序如下：
+Interceptor3 前置处理      
+Object result = QueryInterceptor.query(4个参数方法);     
+Interceptor3 后续处理   
+return result;
 ```
 
 PageInterceptor 执行逻辑如下：
