@@ -1,7 +1,7 @@
 layout: post
 title:  "记一次PageHelper5.x的踩坑记录！"
-categories: it
-tags: [TCP协议]
+categories: [it,mybatis]
+tags: [it]
 excerpt: PageHelper5.x相对于4.x版本在拦截器的实现上进行了改变，4.x是对于4个参数的query方法做了拦截，5.x版本后同时对4个参数、6个参数的方法做了拦截，接下来我们具体看下。
 
 ---
