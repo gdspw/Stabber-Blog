@@ -16,7 +16,7 @@ excerpt: PageHelper5.x相对于4.x版本在拦截器的实现上进行了改变�
   <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler) throws SQLException;
 ```
 
-两个方法参数不一样，如果有过查看源码经验的朋友应该知道，第一个方法是被第二个方法内部调用的，所以一般实现mybatis插件都会拦截第二个方法，包括我前面提到的我们公司的加密组件及PageHelper5.x之前的版本。我们先看下一般情况下mybatis拦截器的执行数据，如下我们配置了三个拦截器及拦截期的加载顺序：
+两个方法参数不一样，如果有过查看源码经验的朋友应该知道，第一个方法是被第二个方法内部调用的，所以一般实现mybatis插件都会拦截第二个方法，包括我前面提到的我们公司的加密组件及PageHelper5.x之前的版本。我们先看下一般情况下mybatis拦截器的执行数据，如下我们配置了三个拦截器及拦截器的加载顺序：
 
 ```java
 //Interceptor1：
@@ -44,7 +44,7 @@ public Interceptor2 getPageInterceptor(){return new Interceptor2();}
 public Interceptor3 getPageInterceptor(){return new Interceptor3();}
 ```
 
-上面三个拦截器都是对Executor类四个参数query方法做拦截，三个拦截期的加载顺序是：Interceptor1>Interceptor2>Interceptor3
+上面三个拦截器都是对Executor类四个参数query方法做拦截，三个拦截器的加载顺序是：Interceptor1>Interceptor2>Interceptor3
 
 但是经过InterceptorChain.pluginAll()处理之后，拦截器的执行顺序变成了：
 
@@ -52,7 +52,7 @@ public Interceptor3 getPageInterceptor(){return new Interceptor3();}
 
 用代码验证下，
 
-我在拦截期的的intercrept方法内添加：
+我在拦截器的的intercrept方法内添加：
 
 ```java
 // x对应拦截器类型的1，2，3
@@ -191,17 +191,20 @@ public class PageInterceptor implements Interceptor {
 
 如果这个插件配置的靠后，是通过 4 个参数方法进来的，我们就获取这两个对象。如果这个插件配置的靠前，已经被别的拦截器处理成 6 个参数的方法了， 那么我们直接从 args 中取出这两个参数直接使用即可。取出这两个参数就保证了当其他拦截器对这两个参数做过处理时，这两个参数在这里会继续生效。
 
-那么问题就来了，当我们的分页拦截期加载两个拦截四个参数的query方法的拦截器中间时，也就是注入顺序：
+那么问题就来了，当我们的分页拦截器加载两个拦截四个参数的query方法的拦截器中间时，也就是注入顺序：
 
 **Interceptor1>Interceptor2>PageInterceptor>Interceptor3**
 
 这时，调用顺序就变了，Interceptor3 执行顺序如下：
 
 ```java
-Interceptor3 前置处理      
-Object result = QueryInterceptor.query(4个参数方法);     
-Interceptor3 后续处理   
-return result;
+如果这个插件配置的靠后，是通过 4 个参数方法进来的，我们就获取这两个对象。如果这个插件配置的靠前，已经被别的拦截器处理成 6 个参数的方法了， 那么我们直接从 args 中取出这两个参数直接使用即可。取出这两个参数就保证了当其他拦截器对这两个参数做过处理时，这两个参数在这里会继续生效。
+
+那么问题就来了，当我们的分页拦截器加载两个拦截四个参数的query方法的拦截器中间时，也就是注入顺序：
+
+Interceptor1>Interceptor2>PageInterceptor>Interceptor3
+
+这时，调用顺序就变了，Interceptor3 执行顺序如下：
 ```
 
 PageInterceptor 执行逻辑如下：
@@ -220,7 +223,9 @@ return result;
 
 1.如果使用的Interceptor1、2、3这种插件是个人编写的，建议跟分页拦截器保持一致，同时拦截4个参数和6个参数的query方法并做对应的判断处理。
 
-2.如果使用的拦截器是别人提供的组件内部的，这个时候就要调整拦截器注入的顺序了，保证在分页插件之后执行的拦截期是对6个参数的拦截，否则，就将分页插件放到最后一步执行，换句话说，就是注入的顺序保证分页插件在第一位。
+2.如果使用的拦截器是别人提供的组件内部的，这个时候就要调整拦截器注入的顺序了，保证在分页插件之后执行的拦截器是对6个参数的拦截，否则，就将分页插件放到最后一步执行，换句话说，就是注入的顺序保证分页插件在第一位。
 
+源码可以访问我的github项目地址：[源码地址](https://github.com/gdspw/blog-demo)
 
+如有疑问，可以在下方评论区留言，我收到留言会及时回复，多谢！
 
