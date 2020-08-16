@@ -177,19 +177,10 @@ public class PageInterceptor implements Interceptor {
 从源码里面可以看到，PageInterceptor里面这一段代码：
 
 ```java
-//由于逻辑关系，只会进入一次
-    if(args.length == 4){
-           //4 个参数时
-           boundSql = ms.getBoundSql(parameter);
-           cacheKey = executor.createCacheKey(ms, parameter, rowBounds, boundSql);
-     } else {
-                //6 个参数时
-                cacheKey = (CacheKey) args[4];
-                boundSql = (BoundSql) args[5];
-      }
+resultList = executor.query(ms, parameter, RowBounds.DEFAULT, resultHandler, cacheKey, boundSql);
 ```
 
-如果这个插件配置的靠后，是通过 4 个参数方法进来的，我们就获取这两个对象。如果这个插件配置的靠前，已经被别的拦截器处理成 6 个参数的方法了， 那么我们直接从 args 中取出这两个参数直接使用即可。取出这两个参数就保证了当其他拦截器对这两个参数做过处理时，这两个参数在这里会继续生效。
+插件里面执行的全是六个参数的query方法。
 
 那么问题就来了，当我们的分页拦截器加载两个拦截四个参数的query方法的拦截器中间时，也就是注入顺序：
 
