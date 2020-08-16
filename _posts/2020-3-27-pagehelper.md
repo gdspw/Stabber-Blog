@@ -208,7 +208,7 @@ PageInterceptor 执行逻辑如下：
 
 ```java
 PageInterceptor 前置处理
-//根据源码分析只会进入一次4个参数拦截方法，所以执行的是6个参数的方法
+//拦截器里的执行方法全是六个参数的，具体可参考源码
 Object result = executor.query(6个参数方法);     
 PageInterceptor 后续处理   
 return result;
